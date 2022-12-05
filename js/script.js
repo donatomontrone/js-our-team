@@ -21,26 +21,20 @@
 //    Scott Estrada  Developer         scott-estrada-developer.jpg
 //    Barbara Ramos  Graphic Designer  barbara-ramos-graphic-designer.jpg
 
-function getNewElement(parentElement, element) {
-    const newElement = document.createElement(element);
-    parentElement.append(newElement);
-    return newElement;
-    }
 
-
-const team = [
+const teamMember = [
 {
     name : "Wayne Barnett",
     role : "Founder & CEO",
     img : "wayne-barnett-founder-ceo.jpg"
 },
 {
-    name : "Walter Gordon",
+    name : "Angela Caroll",
     role : "Chief Editor",
     img : "angela-caroll-chief-editor.jpg"
 },
 {
-    name : "Wayne Barnett",
+    name : "Walter Gordon",
     role : "Office Manager",
     img : "walter-gordon-office-manager.jpg"
 },
@@ -60,21 +54,34 @@ const team = [
     img : "barbara-ramos-graphic-designer.jpg"
 }];
 
-for (let index = 0; index < team.length; index++) {
-    console.table(team[index]);
+for (let index = 0; index < teamMember.length; index++) {
+    console.table(teamMember[index]);
 }
 
 
-divElement = document.querySelector('div.card-body');
+for (let index = 0; index < teamMember.length; index++) {
 
-let paragraph = getNewElement(divElement, 'p');
+    let rowElement = document.querySelector('div.row');
+    rowElement.classList.add('pt-5');
 
-paragraph.classList.add('card-text');
+    //Creo e appendo la colonna alla riga Bootstrap
+    const divColElement = document.createElement("div");
+    divColElement.classList.add("col-12", "col-md-6", "col-lg-2", "text-center");
+    rowElement.append(divColElement);
 
-for (let index = 0; index < team.length; index++) {
-    const currentPerson = team[index];
+    //Creo e appendo il titolo alla colonna
+    const TitleElement = document.createElement("h4");
+    TitleElement.innerHTML = teamMember[index].name;
+    TitleElement.classList.add("text-center");
+    divColElement.append(TitleElement);
 
-    paragraph.innerHTML += `${currentPerson.name}  `
-    paragraph.innerHTML += `${currentPerson.role}  `
-    paragraph.innerHTML += `${currentPerson.img} <br> `
+    //Creo e appendo l'immagine del membro
+    const imgElement = document.createElement("img");
+    imgElement.src = "./css/img/" + teamMember[index].img;
+    imgElement.classList.add('w-100')
+    divColElement.append(imgElement);
+
+    const paragraphElement = document.createElement("p");
+    paragraphElement.innerHTML = teamMember[index].role;
+    divColElement.append(paragraphElement);
     }
