@@ -66,7 +66,7 @@ for (let index = 0; index < teamMember.length; index++) {
 
     //Creo e appendo la colonna alla riga Bootstrap
     const divColElement = document.createElement("div");
-    divColElement.classList.add("col-12", "col-md-6", "col-lg-2", "text-center");
+    divColElement.classList.add("col-12", "col-md-6", "col-lg-4", "text-center");
     rowElement.append(divColElement);
 
     //Creo e appendo il titolo alla colonna
@@ -82,6 +82,7 @@ for (let index = 0; index < teamMember.length; index++) {
     divColElement.append(imgElement);
 
     const paragraphElement = document.createElement("p");
+    paragraphElement.classList.add('py-4')
     paragraphElement.innerHTML = teamMember[index].role;
     divColElement.append(paragraphElement);
     }
