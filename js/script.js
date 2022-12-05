@@ -61,5 +61,20 @@ const team = [
 }];
 
 for (let index = 0; index < team.length; index++) {
-    console.log(team[index]);
+    console.table(team[index]);
 }
+
+
+divElement = document.querySelector('div.card-body');
+
+let paragraph = getNewElement(divElement, 'p');
+
+paragraph.classList.add('card-text');
+
+for (let index = 0; index < team.length; index++) {
+    const currentPerson = team[index];
+
+    paragraph.innerHTML += `${currentPerson.name}  `
+    paragraph.innerHTML += `${currentPerson.role}  `
+    paragraph.innerHTML += `${currentPerson.img} <br> `
+    }
